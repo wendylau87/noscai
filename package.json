@@ -1,7 +1,7 @@
 {
-  "name": "medusa-starter-default",
+  "name": "medusa-plugin-noscai-anamnesis",
   "version": "0.0.1",
-  "description": "A starter for Medusa projects.",
+  "description": "Medusa plugin for noscai anamnesis",
   "author": "Medusa (https://medusajs.com)",
   "license": "MIT",
   "keywords": [
@@ -26,7 +26,6 @@
   },
   "dependencies": {
     "@medusajs/admin": "^7.1.16",
-    "@medusajs/cache-inmemory": "1.8.11",
     "@medusajs/cache-redis": "^1.9.2",
     "@medusajs/event-bus-local": "1.9.9",
     "@medusajs/event-bus-redis": "^1.8.14",
@@ -37,12 +36,12 @@
     "cors": "^2.8.5",
     "dotenv": "16.3.1",
     "express": "^4.17.2",
-    "medusa-fulfillment-manual": "1.1.41",
     "medusa-interfaces": "1.3.10",
-    "medusa-payment-manual": "1.0.25",
-    "medusa-payment-stripe": "6.0.11",
     "prism-react-renderer": "^2.0.4",
     "typeorm": "0.3.16"
+  },
+  "peerDependencies": {
+    "@medusajs/medusa": "^1.20.9"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.3",
