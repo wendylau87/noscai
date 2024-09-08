@@ -3,7 +3,7 @@ import type {
     MedusaResponse,
 } from "@medusajs/medusa"
 import AnamnesisSectionService from "../../../services/anamnesisSection"
-import { CreateAnamnesisSection } from "src/interfaces/request/anamnesisSectionRequest"
+import { CreateAnamnesisSection } from "src/types/request/anamnesisSectionRequest"
 
 export const POST = async (
     req: MedusaRequest, 

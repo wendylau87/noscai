@@ -1,5 +1,5 @@
 import { TransactionBaseService } from "@medusajs/medusa"
-import { CreateAnamnesisQuestion } from "../interfaces/request/anamnesisQuestionRequest"
+import { CreateAnamnesisQuestion } from "../types/request/anamnesisQuestionRequest"
 import { AnamnesisQuestion } from "../models/anamnesisQuestion"
 import { AnamnesisQuestionRepository } from "src/repositories/anamnesisQuestion"
 

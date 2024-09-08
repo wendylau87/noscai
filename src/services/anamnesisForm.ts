@@ -1,15 +1,16 @@
 import { TransactionBaseService } from "@medusajs/medusa"
 import { AnamnesisFormRepository } from "../repositories/anamnesisForm"
 import { AnamnesisForm } from "../models/anamnesisForm"
-import { CreateAnamnesisForm } from "src/interfaces/request/anamnesisFormRequest"
+import { CreateAnamnesisForm } from "../types/request/anamnesisFormRequest"
+import type AnamnesisFormOptions from "../types/services/anamnesisFormOption"
 
 class AnamnesisFormService extends TransactionBaseService {
 
-    private anamnesisFormRepository : typeof AnamnesisFormRepository
+    protected anamnesisFormRepository : typeof AnamnesisFormRepository
 
-    constructor(container) {
-      super(container)
-      this.anamnesisFormRepository = container.anamnesisFormRepository
+    constructor(container){
+        super(container)
+        this.anamnesisFormRepository = container.anamnesisFormRepository
     }
 
     async create(data: CreateAnamnesisForm) : Promise<AnamnesisForm> {

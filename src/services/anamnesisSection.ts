@@ -1,7 +1,7 @@
 import { TransactionBaseService } from "@medusajs/medusa"
 import { AnamnesisSectionRepository } from "../repositories/anamnesisSection"
 import { AnamnesisSection } from "src/models/anamnesisSection"
-import { CreateAnamnesisSection } from "src/interfaces/request/anamnesisSectionRequest"
+import { CreateAnamnesisSection } from "src/types/request/anamnesisSectionRequest"
 
 class AnamnesisSectionService extends TransactionBaseService {
 
