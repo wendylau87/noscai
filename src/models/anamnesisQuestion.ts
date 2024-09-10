@@ -53,5 +53,5 @@ export class AnamnesisQuestion extends BaseEntity {
     question_type: QuestionType
   
     @Column('jsonb', { nullable: false, default: {} })
-    options: string
+    options: string | object
 }

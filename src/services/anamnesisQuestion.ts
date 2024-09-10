@@ -12,7 +12,7 @@ class AnamnesisQuestionService extends TransactionBaseService {
       this.anamnesisQuestionRepository = container.anamnesisQuestionRepository
     }
 
-    async create(data: CreateAnamnesisQuestion) : Promise<AnamnesisQuestion> {
+    async create(data : CreateAnamnesisQuestion) : Promise<AnamnesisQuestion> {
       return this.atomicPhase_(async (manager) => {
         const QuestionRepo = manager.withRepository(
           this.anamnesisQuestionRepository
@@ -25,6 +25,16 @@ class AnamnesisQuestionService extends TransactionBaseService {
         const result = await QuestionRepo.save(Question)
   
         return result
+      })
+    }
+
+
+    async delete(id:string) : Promise<void> {
+      return this.atomicPhase_(async (manager) => {
+        const repo = manager.withRepository(
+          this.anamnesisQuestionRepository
+        )
+        const result = await repo.delete(id)
       })
     }
 }

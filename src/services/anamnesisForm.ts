@@ -2,11 +2,10 @@ import { TransactionBaseService } from "@medusajs/medusa"
 import { AnamnesisFormRepository } from "../repositories/anamnesisForm"
 import { AnamnesisForm } from "../models/anamnesisForm"
 import { CreateAnamnesisForm } from "../types/request/anamnesisFormRequest"
-import type AnamnesisFormOptions from "../types/services/anamnesisFormOption"
 
 class AnamnesisFormService extends TransactionBaseService {
 
-    protected anamnesisFormRepository : typeof AnamnesisFormRepository
+    private anamnesisFormRepository : typeof AnamnesisFormRepository
 
     constructor(container){
         super(container)
@@ -27,8 +26,25 @@ class AnamnesisFormService extends TransactionBaseService {
       })
     }
 
-    async getMessage() {
-      return `Welcome to My Store!`
+    async delete(id:string) : Promise<void> {
+      return this.atomicPhase_(async (manager) => {
+        const formRepo = manager.withRepository(
+          this.anamnesisFormRepository
+        )
+        const result = await formRepo.delete(id)
+      })
+    }
+
+    async getById(id:string) : Promise<AnamnesisForm> {
+      const repo = this.anamnesisFormRepository
+      const result = await repo.findOne({
+        relations: ["anamnesis_sections","anamnesis_sections.anamnesis_questions"],
+        loadEagerRelations: true,
+        where :{
+          id: id
+        }
+      })
+      return result
     }
 }
   

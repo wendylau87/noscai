@@ -4,6 +4,6 @@ export type CreateAnamnesisQuestion = {
     section_id?: string
     question_text?: string
     question_type?: QuestionType
-    options?: string
+    options?: string | object
   };
   

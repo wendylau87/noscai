@@ -27,6 +27,15 @@ class AnamnesisSectionService extends TransactionBaseService {
         return result
       })
     }
+
+    async delete(id:string) : Promise<void> {
+      return this.atomicPhase_(async (manager) => {
+        const repo = manager.withRepository(
+          this.anamnesisSectionRepository
+        )
+        const result = await repo.delete(id)
+      })
+    }
 }
   
 export default AnamnesisSectionService
